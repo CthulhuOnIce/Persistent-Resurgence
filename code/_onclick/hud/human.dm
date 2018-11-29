@@ -22,6 +22,7 @@
 
 	// Draw the various inventory equipment slots.
 	var/has_hidden_gear
+	mymob.overlay_fullscreen("aesthetic-static", /obj/screen/fullscreen/darkblur)
 	for(var/gear_slot in hud_data.gear)
 
 		inv_box = new /obj/screen/inventory()

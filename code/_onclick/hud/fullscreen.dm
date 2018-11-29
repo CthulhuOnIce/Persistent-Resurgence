@@ -47,7 +47,8 @@
 
 /mob/proc/clear_fullscreens()
 	for(var/category in screens)
-		clear_fullscreen(category)
+		if(!category == "aesthetic-static")  // TODO: Make this non-hacky
+			clear_fullscreen(category)
 
 /mob/proc/hide_fullscreens()
 	if(client)
@@ -75,6 +76,14 @@
 /obj/screen/fullscreen/brute
 	icon_state = "brutedamageoverlay"
 	layer = DAMAGE_LAYER
+
+/obj/screen/fullscreen/darkblur  // This overlays a dark static on the screen.
+	icon = 'icons/effects/static.dmi'
+	icon_state = "9 moderate"
+	screen_loc = ui_entire_screen
+	alpha = 127
+	layer = FULLSCREEN_LAYER
+	allstate = 1
 
 /obj/screen/fullscreen/oxy
 	icon_state = "oxydamageoverlay"
